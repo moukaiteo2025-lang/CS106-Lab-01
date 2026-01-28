@@ -8,7 +8,11 @@
  */
 int tmax(void)
 {
-    return 2;
+    // return ((1 << 31) >> 31) & ~(1 << 31);
+    // return ~(1 << 31);
+    // return (unsigned int) ~0 >> 1; 
+    return (unsigned int)(1 << 31) - 1; // TMin = 111..1
+                                        // TMin - 1 = 01...1
 }
 
 int test_tmax(void)

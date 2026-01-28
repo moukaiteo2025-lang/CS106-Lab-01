@@ -10,7 +10,14 @@
  */
 int fitsShort(int x)
 {
-    return 2;
+    // return 2;
+    // return !(((x << 16) >> 16) ^ x);
+
+    // printf("%x %x\n", x, (x >> 15));
+    printf("%x %x\n", ~((x >> 15) ^ 0), ~((x >> 15) ^ (~0)));
+    return !!(!(~((x >> 15) ^ 0)) | !(~((x >> 15) ^ (~0))));
+
+    // return !((x >> 15) ^ (x >> 16));
 }
 
 int test_fitsShort(int x)

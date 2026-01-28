@@ -10,7 +10,9 @@
  */
 int upperBits(int n)
 {
-    return 2;
+    // return 2;
+    return ((1 << 31) >> (n + ~0)) & ~((!n << 31) >> 31);
+    // return ~((!n << 31) >> 31);
 }
 
 int test_upperBits(int x)
@@ -24,7 +26,7 @@ int test_upperBits(int x)
 
 int main(void)
 {
-    int x = 32;
+    int x = 31;
     printf("expected: %x\n", upperBits(x));
     printf("actual  : %x\n", test_upperBits(x));
 }
